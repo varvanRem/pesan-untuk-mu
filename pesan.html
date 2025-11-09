@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesan untuk Aisyah</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(180deg,#f5faff,#ffffff);
+  color:#0b132b;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 1s;
+}
+section{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  max-width:700px;
+  padding:50px 30px;
+  background:rgba(255,255,255,0.9);
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.1);
+  animation:fade 0.8s ease;
+}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:26px;margin-bottom:15px;}
+p{font-size:18px;line-height:1.8;margin-bottom:25px;white-space:pre-line;}
+button{
+  padding:10px 24px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#3b82f6,#06b6d4);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+button:hover{transform:scale(1.05)}
+.visible{display:flex}
+
+/* animasi halus di awal */
+.fade-in{
+  animation:fadein 1.5s ease-in-out;
+}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body class="fade-in">
+
+<!-- Musik Latar -->
+<audio id="bgm" autoplay loop hidden>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/09/audio_2b143edb38.mp3?filename=calm-piano-ambient-110874.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Halaman 1 -->
+<section id="page1" class="visible">
+  <h1>Halo Aisyah 🌸</h1>
+  <p>Ada pesan untuk kamu,  
+  from: <strong>v.</strong></p>
+  <button onclick="playMusic(); nextPage(2)">Mohon di klik</button>
+</section>
+
+<!-- Halaman 2–10 -->
+<section id="page2">
+  <p>Hai Aisyah,  
+  Balik kan yok? aku kangen kamu aku ke pikiran kamu terus. aku kepikiran kamu terus terus.</p>
+  <button onclick="nextPage(3)">Lanjut ➜</button>
+</section>
+
+<section id="page3">
+  <p>Next aja</p>
+  <button onclick="nextPage(4)">Lanjut ➜</button>
+</section>
+
+<section id="page4">
+  <p>Next aja</p>
+  <button onclick="nextPage(5)">Lanjut ➜</button>
+</section>
+
+<section id="page5">
+  <p>Next aja</p>
+  <button onclick="nextPage(6)">Lanjut ➜</button>
+</section>
+
+<section id="page6">
+  <p>Next aja</p>
+  <button onclick="nextPage(7)">Lanjut ➜</button>
+</section>
+
+<section id="page7">
+  <p>Next aja</p>
+  <button onclick="nextPage(8)">Lanjut ➜</button>
+</section>
+
+<section id="page8">
+  <p>Next aja</p>
+  <button onclick="nextPage(9)">Lanjut ➜</button>
+</section>
+
+<section id="page9">
+  <p>Maaf aku ga bisa ungkapin langsung ke kamu, aku kaya pecundang hanya bisa pake website buatan aku.
+    Mau balikan seperti dulu ga? aku akan berusaha untuk memperkenalkan kamu keluarga secara tahap, asal kamu mau nunggu, tapi aku akan secara bertahap memperkanalkan kamu ke ortu ku. kamu juga udah dapet 1 restu dari adek dari mama aku😆. itu tanda nya apa? yah aku akan bertahap dari keluarga mama ku dulu baru ke keluarga ayah ku.
+  </p>
+  <button onclick="nextPage(10)">Lanjut ➜</button>
+</section>
+
+<section id="page10">
+  <p>Aira, entah sejak kapan aku mulai terbiasa merindukanmu. Awalnya cuma sesekali, tapi lama-lama rasa itu seperti jadi bagian dari hari-hariku. Kadang aku lagi sibuk, tapi tiba-tiba namamu muncul di kepala tanpa alasan.
+
+Ada kalanya aku cuma diam, ngelihat langit malam, lalu kepikiran… “kira-kira Aira lagi ngapain ya?” Lucu sih, tapi juga nyesek. Karena sejauh apa pun aku berusaha ngelupain rasa ini, selalu ada hal kecil yang bikin aku inget kamu — entah dari lagu, tempat, atau bahkan kalimat sederhana yang pernah kamu ucapin.
+
+Rindu ini aneh, Aira. Dia nggak minta izin, nggak bisa dikendalikan, tapi terus tumbuh pelan-pelan di dalam hati. Dan aku nggak tahu, apakah kamu ngerasain hal yang sama, atau cuma aku yang masih terjebak di kenangan.
+
+Tapi satu hal yang pasti — aku kangen. Bukan kangen yang ringan, tapi kangen yang diam-diam nyakitin, karena nggak bisa langsung aku sampein ke kamu. Semoga di mana pun kamu sekarang, kamu tahu… ada seseorang yang masih nyebut namamu dalam doanya, meski tanpa suara.
+  Dari: v.</p>
+  <button onclick="backToStart()">Ulang dari awal 🔁</button>
+</section>
+
+<script>
+let current = 1;
+function nextPage(num){
+  document.getElementById("page"+current).classList.remove("visible");
+  document.getElementById("page"+num).classList.add("visible");
+  current = num;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function backToStart(){
+  document.getElementById("page"+current).classList.remove("visible");
+  document.getElementById("page1").classList.add("visible");
+  current = 1;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function playMusic(){
+  const bgm = document.getElementById('bgm');
+  bgm.volume = 0.4;
+  bgm.play().catch(()=>{});
+}
+</script>
+</body>
+</html>
